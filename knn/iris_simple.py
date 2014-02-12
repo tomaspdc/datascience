@@ -20,20 +20,22 @@ def train_k_neighbours(n, features_set, predict_set):
     return model
 
 
-def split_set(dataframe):
+def split_set(dataframe, pct=0.3):
     uniform_array = numpy.random.uniform(0, 1, len(dataframe))
-    train_set = dataframe[uniform_array > 0.3]
-    test_set = dataframe[uniform_array <= 0.3]
+    train_set = dataframe[uniform_array > pct]
+    test_set = dataframe[uniform_array <= pct]
     return train_set, test_set
 
 
-def n_fold_set(n, dataframe):
-    uniform_array = numpy.random.uniform(0, 1, len(dataframe))
-    sets = []
-    for i in range(1, n):
-        sets.append(
-            dataframe[uniform_array > 0.3]
-        )
+def n_fold_sets(n, dataframe):
+    df_len = len(dataframe)
+    # disordered whole dataframe
+    d_df = numpy.random.choice(dataframe.index.values, df_len)
+    steps = range(0, df_len + n, df_len/n)
+    sets = {}
+    for i in range(0, n):
+        sets[i] = dataframe.ix[d_df[steps[i]:steps[i+1]]]
+    return sets
 
 csv = "iris.csv"
 
