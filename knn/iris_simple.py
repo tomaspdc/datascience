@@ -30,7 +30,7 @@ def split_set(dataframe):
 def n_fold_set(n, dataframe):
     uniform_array = numpy.random.uniform(0, 1, len(dataframe))
     sets = []
-    for i in range(1,n):
+    for i in range(1, n):
         sets.append(
             dataframe[uniform_array > 0.3]
         )
@@ -47,9 +47,7 @@ data_frame = pandas.read_csv(csv)
 features = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width']
 predict = 'class'
 
-
-
-
+train_set, test_set = split_set(data_frame)
 
 results = []
 best = None
