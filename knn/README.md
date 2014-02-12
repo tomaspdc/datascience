@@ -1,4 +1,4 @@
-== KNN ==
+** KNN **
 
 to install all the required libraries just do:
 
