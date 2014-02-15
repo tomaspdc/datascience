@@ -11,31 +11,31 @@ from itertools import product
 df = pandas.read_csv("http://www.ats.ucla.edu/stat/data/binary.csv")
 
 # take a look at the dataset
-#print(df.head())
+print(df.head())
 
 # rename the 'rank' column because there is also a
 # DataFrame method called 'rank'
 df.columns = ["admit", "gre", "gpa", "prestige"]
 
 # list the columns
-#print(df.columns)
+print(df.columns)
 
 # explore count/mean/std/min/25%/50%/75%
-#print(df.describe())
+print(df.describe())
 
 # std (you just saw this in the line before but whatever)
-#print(df.std())
+print(df.std())
 
 # cross-counts ranks/prestiges against admit/no-admit
-#print(pandas.crosstab(df['admit'], df['prestige'], rownames=['admit']))
+print(pandas.crosstab(df['admit'], df['prestige'], rownames=['admit']))
 
 # creates histograms for each variable and shows them with pylab
-#df.hist()
-#pylab.show()
+df.hist()
+pylab.show()
 
 # we dummify rank/prestiges with a sparse matrix:
 dummy_ranks = pandas.get_dummies(df['prestige'], prefix='prestige')
-#print(dummy_ranks.head())
+print(dummy_ranks.head())
 
 # cleans the data frame (no dummies)
 keep = ['admit', 'gre', 'gpa']
@@ -98,6 +98,8 @@ combos['admit_pred'] = result.predict(combos[train_cols])
 
 print(combos.head())
 
+
+# helper function to do exactly isolation and plotting
 def isolate_and_plot(variable):
     # isolate gre and class rank
     grouped = pandas.pivot_table(
