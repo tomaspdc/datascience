@@ -106,4 +106,4 @@ if  [ ! -d ".git" ]; then
     rm -rf ${SUPERPACK_PATH}
 fi
 
-echo 'Done'
+echo 'Done!'
