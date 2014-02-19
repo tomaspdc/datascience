@@ -13,3 +13,5 @@ Organization
 
 ==
 [![Gitter chat](https://badges.gitter.im/tomaspdc/datascience.png)](https://gitter.im/tomaspdc/datascience)
+
+[![LinkedIn](http://s.c.lnkd.licdn.com/scds/common/u/img/webpromo/btn_liprofile_blue_80x15.png)](http://uk.linkedin.com/in/tomaspdc)
